@@ -1,0 +1,127 @@
+include paragraphs
+include docbtn
+include devicon
+include video
+
+doctype html
+head
+	meta(charset="UTF-8")
+	title #{title}
+	link(
+		href="https://fonts.googleapis.com/icon?family=Material+Icons",
+		rel="stylesheet"
+	)
+	styles-bundle
+body
+	nav(class="red", role="navigation")
+		div(class="nav-wrapper container")
+			a(id="logo-container" href="#" class="brand-logo") #{title}
+			ul(class="right hide-on-med-and-down")
+				each section in sections
+					if !section.hide_from_navbar
+						li: a(
+							href="#section-"+section.title.toLowerCase().split(" ").join("-")
+						)=section.title
+
+
+	div(class="parallax-container")
+		br
+		br
+		div(id="landpage-section", class="section no-pad-bot")
+			div(class="container")
+				h1(id="page-title", class="header center text-lighten-2") #{title}
+				div(class="row center")
+					h5(id="page-description", class="header col s12 light") #{description}
+				div(class="row center")
+					a(
+						href="#section-overview",
+						id="get-started-button",
+						class="btn-large waves-effect waves-light red darken-1"
+					) #{get_started}
+		div(class="parallax")
+			img(id="img-free-to-play")
+		br
+		br
+
+	div(class="container", id="section-overview")
+		h2=sections.ov.title
+		div(class="row valign-wrapper")
+			div(class="col s12 l3 valign")
+				+p(sections.ov.desc)
+			div(class="col s12 l9")
+				+video("schedulebot.mp4")
+
+	div(class="divider")
+
+	div(class="container", id="section-how-it-works")
+		h2=sections.hiw.title
+		div(class="row")
+			div(class="col s12 l8")
+				h4=sections.hiw.inhouse_title
+				p=sections.hiw.inhouse_content[0]
+				+docbtn("create")
+				p=sections.hiw.inhouse_content[1]
+				+docbtn("add-inhouse")
+				p=sections.hiw.inhouse_content[2]
+				+docbtn("confirm", "force-lobby-start")
+				p=sections.hiw.inhouse_content[3]
+			div(class="col s12 l4 blue-grey lighten-3")
+				h4=sections.hiw.steam_title
+				p=sections.hiw.steam_content[0]
+				img(id="img-link-steam" class="responsive-img materialboxed centered")
+				p=sections.hiw.steam_content[1]
+				img(id="img-steam-code" class="responsive-img materialboxed centered")
+				p=sections.hiw.steam_content[2]
+
+	div(class="divider")
+
+	div(class="container", id="section-installation")
+		h2=sections.i.title
+		ul(class="collapsible popout", data-collapsible="accordion")
+			each item in sections.i.content
+				li
+					div(
+						class="collapsible-header",
+						id="collapsible-"+item.title.toLowerCase().replace(" ", "-")
+					): strong=item.title
+					div(class="collapsible-body")!=item.content
+
+	div(class="divider")
+
+	div(class="container", id="section-powered-by")
+		h2=sections.pb.title
+		div(class="center")
+			+devicon("nodejs", "Node.js", "https://nodejs.org/")
+			+devicon("postgresql", "PostgreSQL", "https://www.postgresql.org/")
+			+devicon("git", "Git", "https://git-scm.com/")
+			a(href="http://momentjs.com/", target="_blank"): img(
+				id="img-moment",
+				class="poweredby responsive-img hoverable tooltipped",
+				data-position="top",
+				data-delay="50"
+				data-tooltip="Moment.js"
+			)
+			a(href="https://discord.js.org/#/", target="_blank"): img(
+				id="img-discordjs",
+				class="poweredby responsive-img hoverable tooltipped",
+				data-position="top",
+				data-delay="50"
+				data-tooltip="Discord.js"
+			)
+
+	footer(class="page-footer red darken-1")
+		div(class="container")
+			div(class="row")
+				div(class="col s12 l6")
+					h5(class="white-text")=footer_title
+					p(class="grey-text text-lighten-4")=footer_content
+				div(class="col s12 l4 offset-l2")
+					h5(class="white-text")=footer_links_title
+					ul
+						each link in footer_links
+							li: a(class="grey-text text-lighten-3" href=link.href)=link.text
+		div(class="footer-copyright")
+			div(class="container")=license_text
+				a(class="grey-text text-lighten-4 right" href="#")=back_to_top
+
+	script-bundle

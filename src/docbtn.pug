@@ -1,0 +1,11 @@
+mixin docbtn(...commands)
+	div(class="center-align")
+		each command in commands
+			a(
+				href="https://github.com/MeLlamoPablo/schedulebot/blob/dota/usage/usage-guide.md#"
+					+command,
+				id="usage-guide-" + command + "-button"
+				class="btn-large waves-effect waves-light red lighten-1"
+				target="_blank"
+			) Help for the #{command} command&nbsp;
+				i(class="material-icons") open_in_new

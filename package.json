@@ -1,0 +1,52 @@
+{
+  "name": "schedulebot-site",
+  "version": "1.0.0",
+  "description": "The homepage for [ScheduleBot](https://github.com/MeLlamoPablo/schedulebot/tree/dota).",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "author": "Pablo Rodríguez <pabloviolin8@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "browserify-shim": "^3.8.12",
+    "devicon": "^2.0.0",
+    "jquery": "^3.1.1",
+    "marked": "^0.3.6",
+    "materialize-css": "^0.97.8"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-es2015": "^6.18.0",
+    "clean-css": "^3.4.23",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-tap": "^0.1.3",
+    "gulp-uglify": "^2.0.0",
+    "parse5": "^3.0.1"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeLlamoPablo/schedulebot-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MeLlamoPablo/schedulebot-site/issues"
+  },
+  "homepage": "https://github.com/MeLlamoPablo/schedulebot-site#readme"
+}

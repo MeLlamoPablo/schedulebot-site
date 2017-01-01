@@ -1,0 +1,9 @@
+mixin devicon(iconName, prettyName, url)
+	a(
+		class="poweredby devicon-" + iconName + "-plain colored hoverable tooltipped",
+		data-position="top",
+		data-delay="50"
+		data-tooltip=prettyName,
+		href=url,
+		target="_blank"
+	)

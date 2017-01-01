@@ -1,0 +1,100 @@
+img.centered {
+	display: block;
+	margin: 0 auto;
+}
+
+a.centered {
+	display: block;
+	margin: 0 auto;
+}
+
+.poweredby {
+	font-size: 125px;
+	height: 125px !important;
+	margin-right: 15px;
+}
+
+footer {
+	margin-top: 20px !important;
+}
+
+code {
+	background:#F8F8FF;
+	padding:4px
+}
+
+#page-title {
+	color: #D32F2F;
+	text-shadow: 0 0 15px black;
+}
+
+#page-description {
+	text-shadow: 0 0 5px black;
+}
+
+p {
+	line-height: 2rem;
+}
+
+.collapsible-body p,
+.collapsible-body pre {
+	padding: 0.5rem 2rem 0.5rem 2rem !important;
+}
+
+.parallax-container {
+	line-height: 0;
+	height: auto;
+	color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+	width: 100%;
+}
+
+/*#img-free-to-play {
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+}*/
+
+@media only screen and (min-width: 992px) {
+	#landpage-section {
+		padding-top: 160px;
+	}
+
+	.parallax-container {
+		min-height: 700px;
+	}
+}
+
+@media only screen and (max-width : 992px) {
+	.parallax-container {
+		min-height: 380px;
+	}
+
+	.parallax-container .section {
+		position: absolute;
+	}
+	#index-banner .section {
+		top: 10%;
+	}
+}
+
+@media only screen and (max-width : 600px) {
+
+	#index-banner .section {
+		top: 0;
+	}
+}
+
+.icon-block {
+	padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+footer.page-footer {
+	margin: 0;
+}
+
+/* fixes valign being broken on mobile */
+@media only screen and (max-width: 992px) { .row.valign-wrapper { display: inherit; } }
