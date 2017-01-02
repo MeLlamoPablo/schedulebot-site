@@ -50,11 +50,6 @@ p {
 	width: 100%;
 }
 
-/*#img-free-to-play {
-	-webkit-filter: blur(5px);
-	filter: blur(5px);
-}*/
-
 @media only screen and (min-width: 992px) {
 	#landpage-section {
 		padding-top: 160px;
@@ -90,6 +85,10 @@ p {
 }
 .icon-block .material-icons {
 	font-size: inherit;
+}
+
+.progress-container {
+	padding: 0 20% 0 20%;
 }
 
 footer.page-footer {

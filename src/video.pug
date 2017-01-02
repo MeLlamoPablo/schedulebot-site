@@ -1,3 +1,9 @@
 mixin video(fileName)
-	video(class="responsive-video", controls, autoplay, loop)
+	video(
+		id="video-"+fileName.replace(".mp4", ""),
+		class="responsive-video hide",
+		controls,
+		autoplay,
+		loop,
+	)
 		source(src="./assets/"+fileName, type="video/mp4")

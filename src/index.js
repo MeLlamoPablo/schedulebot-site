@@ -22,4 +22,12 @@ $(document).ready(() => {
 
 	// By default, expand the prerequisites collapisble
 	$("#collapsible-prerequisites").click();
+
+	// Make the video show when loaded
+	let video = document.getElementById("video-schedulebot");
+	video.load();
+	video.addEventListener("loadeddata", () => {
+		$("#video-schedulebot-progress").addClass("hide");
+		$("#video-schedulebot").removeClass("hide");
+	}, false);
 });
