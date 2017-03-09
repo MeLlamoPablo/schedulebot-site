@@ -1,46 +1,34 @@
-To run ScheduleBot Dota Edition locally, you will need:
+To run ScheduleBot locally, you will need:
 
 * [NodeJS](https://nodejs.org/en/download/) 6 or above.
-* [PostgreSQL](https://www.postgresql.org/download/). You'll need to create an empty database for
- ScheduleBot.
-* [git](https://git-scm.com/downloads), so you can easily clone the repo (optional).
+* [PostgreSQL](https://www.postgresql.org/download/).
+	* You'll need to create an empty database for ScheduleBot.
+* [git](https://git-scm.com/downloads), so you can easily clone this repo.
 
-Start by cloning this repo, and then install the dependencies:
+Start by cloning this repo, and then install the dependencies. In a command line (if you're on
+Windows and have no idea what that means, open the `Git Bash` program that was installed with git),
+do:
 
 ```sh
 $ git clone https://github.com/MeLlamoPablo/schedulebot.git
 $ cd schedulebot
-$ git checkout dota
 $ npm install
 ```
 
-And edit the bot's settings in `config.js`. You can edit or leave whatever you want, but you
-should at least edit:
-
-* `master_channel` with the Discord channel where your bot will operate. If you don't know how to
- get it, go to Discord's settings, then `Appearance`, then check `Developer Mode`. After that, 
- right click on your channel, and click `Copy ID`.
-* `default_timezone` with the time zone which will be used by the bot.
-* `db` with yout postgres database settings.
-* `steam.profile_url` with your Steam bot's profile URL.
-
-Now, make sure that your postgres server is running, and run the database setup script:
+Now make sure that postgres is running and launch the setup server by doing:
 
 ```sh
 $ npm run setup
 ```
 
-The script will take your database settings from `config.js`, so you can just go ahead and press
-enter. When asked if you want to connect over SSL, unless you have configured your postgres
-server to use it, you should say no. Then follow the script's instructions to finish the setup.
+Enter your database settings. When asked if you want to connect over SSL, unless you have configured
+your postgres server to use it, you should say no. Then visit the setup site at
+[http://localhost:3000](http://localhost:3000). Follow the instructions in there.
 
-After that, you need to configure your Steam credentials:
+**Note**: an `.ENV` file containing your database settings will be created at your bot's directory.
+Do not delete it, as it's needed by the bot to work.
 
-```sh
-$ npm run setup-steam
-```
-
-Follow the script's instructions and you're good to go. You can run then your bot with:
+Once you click the `Deploy Bot` button, you can run then your bot with:
 
 ```sh
 $ npm run bot

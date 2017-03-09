@@ -77,12 +77,14 @@ gulp.task("insert-base64-images", ["pug"], () => {
 
 			let replaceImages = function(node) {
 				if (node.nodeName === "img") {
-					// The current node is an image, replace it
-					let image = getImage(getNodeId(node));
-					node.attrs.push({
-						name: "src",
-						value: "data:image/jpg;base64," + image.toString("base64")
-					});
+					// The current node is an image, replace it, but only if it doesn't have an src
+					if (node.attrs.map(attr => attr.name).indexOf("src") === -1) {
+						let image = getImage(getNodeId(node));
+						node.attrs.push({
+							name: "src",
+							value: "data:image/jpg;base64," + image.toString("base64")
+						});
+					}
 				} else if (hasChildrenImages(node)) {
 					// The current node is not an image, but might have children images
 					for (let i = 0; i < node.childNodes.length; i++) {
